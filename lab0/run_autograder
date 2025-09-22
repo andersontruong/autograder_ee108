@@ -1,0 +1,28 @@
+#!/bin/bash
+
+ls -l /autograder/
+ls -l /autograder/source
+ls -l /autograder/submission
+ls -l /autograder/results
+
+PYTHON=/autograder/venv/bin/python
+
+# Verilog module/source
+TOP_MODULE=lab0_top
+TOP_MODULE_SRC=lab0_top.v
+
+# Python module for test cases
+TEST_MODULE=lab0_test
+
+# Maximum attainable score for autograder in rubric
+MAX_SCORE=100
+
+cd /autograder/source
+
+$PYTHON runner.py \
+  -t $TOP_MODULE \
+  -s $TOP_MODULE_SRC \
+  -d /autograder/submission \
+  -m $TEST_MODULE \
+  -p $MAX_SCORE \
+  -o /autograder/results/results.json

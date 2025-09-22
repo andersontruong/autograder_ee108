@@ -1,0 +1,6 @@
+__pycache__/
+venv/
+sim_build/
+*.zip
+*.json
+**pytest**
